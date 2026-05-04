@@ -18,30 +18,11 @@
             <!--Points-->
             <div class="section1">
                 <h2><%= greekPoints %></h2>
-                <h2><%= romanPoints %></h2>
                 <h3>GREEK POINTS</h3>
+                <h2><%= romanPoints %></h2>
                 <h3>ROMAN POINTS</h3>
             </div>
-            <form action="/addPoint" method="POST">
-                <label for="pointNum">Amount of points you wish to add:</label>
-                <input type="text" name="pointNum" class="txt">
-                <br>
-                <label for="message">Reason for Points:</label>
-                <input type="text" name="message" class="txt">
-                <br>
-                
-                <legend>Greek or roman points?:</legend>
-                    <label for="team">
-                    <input type="radio" id="greek" name="team" value="greek"> Greeks
-                    </label>
-                    <br>
-                    <label for="team">
-                    <input type="radio" id="roman" name="team" value="roman" checked> Romans
-                    </label>
-                    <br>
-                <br>
-                <input type="submit" id="submit">
-            </form>
+            
             <div class="section1.5">
                 <h2>point history</h1>
         
@@ -58,6 +39,8 @@
             <div class="section4">
                 button to go to fun quiz if we have time to make fun quiz :3
             </div>
+            <!--edit button-->
+            <a href="/editEnter">edit</a>
         </div>
     </main>
 </body>
