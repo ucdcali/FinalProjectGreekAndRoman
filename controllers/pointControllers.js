@@ -34,8 +34,6 @@ export const addPoint = async (req, res)=> {
     try {
         let { pointNum, message, team } = req.body;
 
-        const points = await Point.find().sort({ createdAt: -1 });
-
         if (!pointNum || !message || !team) {
             console.log(pointNum, message, team);
             return res.send(pointNum, message, team);
@@ -45,25 +43,7 @@ export const addPoint = async (req, res)=> {
 
         await Point.create({ pointNum, message, team });
 
-        let greekPoints = 0;
-        let romanPoints = 0;
-        points.forEach(p => {
-         if (p.team === "greek"){
-            greekPoints += p.pointNum;
-         }   
-         else if (p.team === "roman") {
-            romanPoints += p.pointNum;
-         }
-        });
-
-        res.render('student', {
-            title: "Greek and Roman Points!",
-            greekPoints,
-            romanPoints,
-            summary: {
-                total: points.length
-            }
-        });
+        res.redirect('/');
 
     } catch (error) {
         console.error("Error sending message", error);
