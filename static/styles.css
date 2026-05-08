@@ -7,8 +7,8 @@
 }
 
 @font-face {
-  font-family: myFont; /* set name */
-  src: url(sansation_light.woff); /* url of the font */
+  font-family: Greek; /* set name */
+  src: url(CaesarDressing-Regular.ttf); /* url of the font */
 }
 
 /* Base page */
@@ -36,6 +36,10 @@ p{
    font-family: 'Times New Roman', Times, serif; 
 }
 
+h1{
+    font-family: Greek;
+    font-size:60px;
+}
 /* Headings */
 h1, h2, h3 {
     margin: 4px;
@@ -53,6 +57,7 @@ h1, h2, h3 {
     border: groove orange 5px;
     color: rgb(95, 62, 0);
     margin: 20px;
+    font-family: Greek;
 }
 
 .section1 .greek {
@@ -61,6 +66,10 @@ h1, h2, h3 {
     border: groove blue 5px;
     color: rgb(0, 0, 88);
     margin: 20px;
+    font-family: Greek;
+}
+.section1 h2 {
+    font-family: Quint;
 }
 
 /* Form layout */
