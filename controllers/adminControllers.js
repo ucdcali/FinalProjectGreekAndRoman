@@ -6,10 +6,11 @@ export const adminEnter = async (req, res)=> {
 
         if (!key) {
             console.log(key);
-            return res.send("Field not filled");
+            return res.send("Please enter key");
         }
 
         if(key === "bobTheSled") {
+            req.session.userId = "bobTheSled";
             const points = await Point.find();
             let greekPoints = 0;
             let romanPoints = 0;
@@ -53,8 +54,6 @@ export const editEnter = async (req, res)=> {
             romanPoints += p.pointNum;
          }
         });
-
-        //res.json(greekPoints,romanPoints);
 
         res.render('edit', {
             greekPoints,

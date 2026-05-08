@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
+import session from 'express-session';
 import { router } from './routes/routes.js';
 
 dotenv.config();
@@ -17,6 +18,13 @@ app.use(express.static('static'));
 // EJS
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+//allow sessions
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'dev-secret',
+  resave: false,
+  saveUninitialized: false,
+}));
 
 // Routes
 app.use('/', router);
