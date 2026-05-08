@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2><%= greekPoints %></h2>
-    <h3>GREEK POINTS</h3>
-    <h2><%= romanPoints %></h2>
-    <h3>ROMAN POINTS</h3>
+    <main>
+        <div class="section1">
+            <div class="col roman">
+                <h3>ROMAN POINTS</h3>
+                <h2><%= romanPoints %></h2>
+            </div>
 
-    <form action="/addPoint" method="POST">
-        <label for="pointNum">Amount of points you wish to add (or subtract using negative numbers):</label>
-        <input type="text" name="pointNum" class="txt">
-            <br>
-            <label for="message">Reason for Points:</label>
-        <input type="text" name="message" class="txt">
-         <br>
-        <legend>Greek or roman points?:</legend>
-        <label for="team">
-        <input type="radio" id="greek" name="team" value="greek"> Greeks
-            </label>
-            <br>
+            <div class="col greek">
+                <h3>GREEK POINTS</h3>
+                <h2><%= greekPoints %></h2>
+            </div>
+        </div>
+
+        <form action="/addPoint" method="POST">
+            <label for="pointNum">Amount of points you wish to add (or subtract using negative numbers):</label>
+            <input type="text" name="pointNum" class="txt">
+            
+                <label for="message">Reason for Points:</label>
+            <input type="text" name="message" class="txt">
+            
+            <legend>Greek or roman points?:</legend>
             <label for="team">
-            <input type="radio" id="roman" name="team" value="roman" checked> Romans
-            </label>
-            <br>
-            <br>
-        <input type="submit" id="submit">
-    </form>
+            <input type="radio" id="greek" name="team" value="greek"> Greeks
+                </label>
+                <label for="team">
+                <input type="radio" id="roman" name="team" value="roman" checked> Romans
+                </label>
+            <input type="submit" id="submit">
+        </form>
+    </main>
 </body>
 </html>
