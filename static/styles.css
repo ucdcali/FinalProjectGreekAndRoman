@@ -1,37 +1,87 @@
+
+
+
+@font-face {
+  font-family: Quint; /* set name */
+  src: url(Quintessential-Regular.ttf); /* url of the font */
+}
+
+@font-face {
+  font-family: Greek; /* set name */
+  src: url(CaesarDressing-Regular.ttf); /* url of the font */
+}
+
 /* Base page */
 body {
-    background-color: rgb(215, 241, 231);
+    background-image: url(yellowBLUE.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
     color: rgb(6, 51, 10);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Quint;
+    /*font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
     text-align: center;
     font-size: 1.8rem;
     margin: 0;
     padding: 1rem;
 }
 
+main{
+    opacity: 75%;
+    width: 1000px;
+    margin:10vh auto auto auto;
+    padding:20px;
+    background-color: rgb(199, 230, 205);
+    border-radius: 20px;
+    border: green double 20px;
+}
+
+p{
+   font-family: 'Times New Roman', Times, serif; 
+}
+
+h1{
+    font-family: Greek;
+    font-size:60px;
+}
 /* Headings */
 h1, h2, h3 {
-    margin: 0.5rem 0;
+    margin: 4px;
 }
 .section1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 30px;
+    border: double rgb(0, 84, 0) 3px;
+    background-color:rgb(211, 255, 211);
 }
 
 .section1 .roman {
-    text-align: left;
+    text-align: center;
+    background-color:lightyellow;
+    border: groove orange 5px;
+    color: rgb(95, 62, 0);
+    margin: 20px;
+    font-family: Greek;
 }
 
 .section1 .greek {
-    text-align: right;
+    text-align: center;
+    background-color:lightskyblue;
+    border: groove blue 5px;
+    color: rgb(0, 0, 88);
+    margin: 20px;
+    font-family: Greek;
+}
+.section1 h2 {
+    font-family: Quint;
 }
 
 /* Form layout */
 form {
     margin: 1.5rem auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     gap: 0.8rem;
 }
@@ -52,20 +102,20 @@ form {
 
 /* Submit button */
 #submit {
-    color: rgb(9, 40, 68);
     font-family: inherit;
-    height: 2.2rem;
-    width: 5rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.1s ease, background-color 0.2s ease;
+    color:rgb(0, 110, 0);
+    text-decoration: none;
+    background-color: oldlace;
+    border: 3px solid green;
+    border-radius: 5px;
+    padding:2px;
+    font-size:30px;
 }
 
 /* Button hover = slightly unhinged */
 #submit:hover {
-    transform: scale(1.1);
-    background-color: rgb(180, 220, 220);
+    color: rgb(98, 154, 14);
+    background-color: rgb(209, 245, 221);
 }
 
 /* Table styling */
@@ -113,3 +163,188 @@ td {
     display: inline;
 }
 
+a{
+    color:rgb(0, 110, 0);
+    text-decoration: none;
+    background-color: oldlace;
+    border: 3px solid green;
+    border-radius: 5px;
+    padding:2px;
+}
+
+a:hover{
+    color: rgb(98, 154, 14);
+    background-color: rgb(209, 245, 221);
+}
+
+label{
+   text-decoration:dotted;
+}
+
+
+@media (max-width: 480px) {
+body {
+    
+    color: rgb(6, 51, 10);
+    font-family: Quint;
+    /*font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
+    text-align: center;
+    font-size: 4rem;
+    margin: 0;
+    padding: 1rem;
+}
+
+main{
+    width: 900px;
+    margin:10vh auto auto auto;
+    padding:20px;
+    background-color: rgb(199, 230, 205);
+    border-radius: 20px;
+    border: green double 20px;
+}
+
+p{
+   font-family: 'Times New Roman', Times, serif; 
+}
+
+h1{
+    font-family: Greek;
+    font-size:100px;
+}
+/* Headings */
+h1, h2, h3 {
+    margin: 4px;
+}
+.section1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: double rgb(0, 84, 0) 3px;
+    background-color:rgb(211, 255, 211);
+}
+
+.section1 .roman {
+    text-align: center;
+    background-color:lightyellow;
+    border: groove orange 5px;
+    color: rgb(95, 62, 0);
+    margin: 20px;
+    font-family: Greek;
+}
+
+.section1 .greek {
+    text-align: center;
+    background-color:lightskyblue;
+    border: groove blue 5px;
+    color: rgb(0, 0, 88);
+    margin: 20px;
+    font-family: Greek;
+}
+.section1 h2 {
+    font-family: Quint;
+}
+
+/* Form layout */
+form {
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 0.8rem;
+}
+
+
+
+/* Input fields */
+.txt {
+    border-radius: 20px;
+    border: none;
+    font-family: inherit;
+    color: green;
+    width: 12rem;
+    padding: 0.5rem;
+    height: auto;
+    text-align: center;
+}
+
+/* Submit button */
+#submit {
+    font-family: inherit;
+    color:rgb(0, 110, 0);
+    text-decoration: none;
+    background-color: oldlace;
+    border: 3px solid green;
+    border-radius: 5px;
+    padding:2px;
+    font-size:30px;
+}
+
+/* Button hover = slightly unhinged */
+#submit:hover {
+    color: rgb(98, 154, 14);
+    background-color: rgb(209, 245, 221);
+}
+
+/* Table styling */
+table {
+    margin: 2rem auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td {
+    padding: 0.5rem;
+    border-bottom: 2px solid rgb(15, 115, 42);
+}
+
+/* Links */
+.link {
+    color: rgb(9, 40, 68);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Buttons inside table */
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-danger {
+    background-color: rgb(15, 115, 53);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: rgb(30, 160, 71);
+}
+
+/* Inline form for delete */
+.inline {
+    display: inline;
+}
+
+a{
+    color:rgb(0, 110, 0);
+    text-decoration: none;
+    background-color: oldlace;
+    border: 3px solid green;
+    border-radius: 5px;
+    padding:2px;
+}
+
+a:hover{
+    color: rgb(98, 154, 14);
+    background-color: rgb(209, 245, 221);
+}
+
+label{
+   text-decoration:dotted;
+}
+  .content { width: 100%; }
+}

@@ -73,6 +73,7 @@ export const pointPage = async (req, res, next) => {
   try {
     const { message, team } = req.body;
     const pointNum = parseInt(req.body.pointNum);
+    
     await Point.findByIdAndUpdate(req.params.id, {
       pointNum,
       message,

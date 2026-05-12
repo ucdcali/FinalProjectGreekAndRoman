@@ -1,30 +1,40 @@
-import Admin from '../models/Admin.js';
 import Point from '../models/Point.js';
 
 export const adminEnter = async (req, res)=> {
     try {
-        const points = await Point.find();
-        let greekPoints = 0;
-        let romanPoints = 0;
-        points.forEach(p => {
-         if (p.team === "greek"){
-            greekPoints += p.pointNum;
-         }   
-         else if (p.team === "roman") {
-            romanPoints += p.pointNum;
-         }
-        });
+        const {key} = req.body;
 
-        //res.json(greekPoints,romanPoints);
+        if (!key) {
+            console.log(key);
+            return res.send("Please enter key");
+        }
 
-        res.render('admin', {
-            title: "Greek and Roman Points!",
-            greekPoints,
-            romanPoints,
-            summary: {
-                total: points.length
+        if(key === "bobTheSled") {
+            req.session.userId = "bobTheSled";
+            const points = await Point.find();
+            let greekPoints = 0;
+            let romanPoints = 0;
+            points.forEach(p => {
+            if (p.team === "greek"){
+                greekPoints += p.pointNum;
+            }   
+            else if (p.team === "roman") {
+                romanPoints += p.pointNum;
             }
-        });
+            });
+            res.render('admin', {
+                title: "Greek and Roman Points!",
+                greekPoints,
+                romanPoints,
+                summary: {
+                    total: points.length
+                }
+            });
+        }
+        else{
+            res.redirect('/')
+        }
+
     } catch (error) {
         console.error("Error loading", error);
         res.status(500).send("Fix urself");
@@ -45,8 +55,6 @@ export const editEnter = async (req, res)=> {
          }
         });
 
-        //res.json(greekPoints,romanPoints);
-
         res.render('edit', {
             greekPoints,
             romanPoints,
@@ -58,4 +66,8 @@ export const editEnter = async (req, res)=> {
         console.error("Error loading", error);
         res.status(500).send("Fix urself");
     }
+};
+
+export const login = async (req, res)=> {
+    res.render('login');
 };

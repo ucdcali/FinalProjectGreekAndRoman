@@ -13,20 +13,24 @@
     </div>
     <main>
         <!--title-->
-        <h1>GREEK AND ROMAN TRACKER ADMIN AREA</h1>
+        <h1>greek and roman admin page</h1>
         <div class="contain">
-            <!--Points-->
+                <!--Points-->
             <div class="section1">
-                <h2><%= greekPoints %></h2>
-                <h3>GREEK POINTS</h3>
-                <h2><%= romanPoints %></h2>
-                <h3>ROMAN POINTS</h3>
+                <div class="col roman">
+                    <h3>ROMAN POINTS</h3>
+                    <h2><%= romanPoints %></h2>
+                </div>
+
+                <div class="col greek">
+                    <h3>GREEK POINTS</h3>
+                    <h2><%= greekPoints %></h2>
+                </div>
             </div>
-            
+
             <div class="section1.5">
-                <h2>point history</h1>
+                <h2>POINT HISTORY</h1>
         
-            </div>
             <!--Go to posts, maybe show the most recent four posts-->
             <div class="section2">
                 <a href="/adminEvents">uhhh link to posts ig</a>

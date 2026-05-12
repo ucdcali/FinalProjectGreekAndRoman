@@ -1,8 +1,9 @@
 import express from 'express';
 
 import { loadPage, addPoint, edit, pointPage, del } from '../controllers/pointControllers.js';
-import { adminEnter, editEnter } from '../controllers/adminControllers.js';
 import { loadEvents, adminEvents, addEvent, deleteEvent} from '../controllers/eventControllers.js';
+import { adminEnter, editEnter, login } from '../controllers/adminControllers.js';
+import { requireAuth } from '../middleware/auth.js';
 
 export const router = express.Router();
 
@@ -17,6 +18,10 @@ router.get('/adminEvents', adminEvents);
 router.get('/getEvents', loadEvents)
 router.post('/addEvents', addEvent);
 router.post('/deleteEvent/:id', deleteEvent);
+
+router.get("/login", login);
+router.post('/adminEnter', adminEnter);
+router.get('/editEnter', requireAuth, editEnter);
 //edit
 router.get('/:id/edit', edit);
 router.post('/:id', pointPage);
