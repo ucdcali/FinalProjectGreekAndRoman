@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { loadPage, addPoint, edit, pointPage, del, pointHistory} from '../controllers/pointControllers.js';
+import { loadPage, addPoint, pointHistory} from '../controllers/pointControllers.js';
 import { loadEvents, adminEvents, addEvent, deleteEvent, studentEvents} from '../controllers/eventControllers.js';
 import { adminEnter, adminLoad, editEnter, login } from '../controllers/adminControllers.js';
 import { requireAuth } from '../middleware/auth.js';
@@ -25,10 +25,5 @@ router.get('/editEnter', requireAuth, editEnter);
 
 
 //Point routes
-//edit does this need to exist?
-router.get('/:id/edit', edit);
-router.post('/:id', pointPage);
-
 router.post("/addPoint", addPoint);
-router.post('/:id/delete', del);
 router.get('/pointHistory', pointHistory);
