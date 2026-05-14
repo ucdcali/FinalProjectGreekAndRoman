@@ -43,7 +43,7 @@ export const addPoint = async (req, res)=> {
 
         await Point.create({ pointNum, message, team });
 
-        res.redirect('/');
+        res.redirect('/editEnter');
 
     } catch (error) {
         console.error("Error sending message", error);
