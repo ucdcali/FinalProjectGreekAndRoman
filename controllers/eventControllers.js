@@ -49,5 +49,17 @@ export const deleteEvent = async (req, res) => {
         res.status(500).send('Error deleting event');
     }
 };
+export const studentEvents = async (req, res) => {
+    try {
+        const events = await Event.find().sort({ date: 1 });
+        res.render('studentEvents', {
+            events
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error loading student events');
+    }
+};
 
 
