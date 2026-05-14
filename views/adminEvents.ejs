@@ -8,18 +8,31 @@
 </head>
 <body>
     <h1>Events page</h1>
-    <form action="/addEvent" method="POST">
+    <form action="/addEvents" method="POST">
         <h3>add event</h3>
         <label for="name">Event title</label>
-        <input type="text" name="name" class="txt">
+        <input type="text" name="name" class="txt" required>
         <br>
         <label for="message">Message:</label>
-        <input type="text" name="message" class="txt">
+        <input type="text" name="message" class="txt" required>
         <br>
-         <label for="date">Message:</label>
-        <input type="date" name="date" class="txt">
+        <label for="date">Date:</label>
+        <input type="date" name="date" class="txt" required>
         <input type="submit" id="submit">
     </form>
-    
+    <h2>Current Events</h2>
+
+    <ul class="event-list">
+        <% events.forEach(event => { %>
+            <li class="event-item">
+                <strong><%= event.name %></strong> — <%= event.message %>  
+                <em>(<%= event.date %>)</em>
+
+                <form action="/deleteEvent/<%= event._id %>" method="POST">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
 </body>
 </html>
