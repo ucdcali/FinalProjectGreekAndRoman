@@ -69,6 +69,7 @@ export const edit = async (req,res,next) => {
   }
 };
 
+//does this need to exist?
 export const pointPage = async (req, res, next) => {
   try {
     const { message, team } = req.body;
@@ -96,4 +97,17 @@ export const del = async (req,res,next) => {
     next(err)
   }
 
+};
+
+export const pointHistory = async (req, res) => {
+    try {
+        const points = await Point.find().sort({ date: 1 });
+        res.render('pointHistory', {
+            points
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error loading Point History');
+    }
 };
