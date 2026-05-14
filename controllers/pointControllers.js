@@ -43,7 +43,7 @@ export const addPoint = async (req, res)=> {
 
         await Point.create({ pointNum, message, team });
 
-        res.redirect('/');
+        res.redirect('/editEnter');
 
     } catch (error) {
         console.error("Error sending message", error);
@@ -51,49 +51,15 @@ export const addPoint = async (req, res)=> {
     }
 };
 
-export const edit = async (req,res,next) => {
-  try {
-    const point = await Point.findById(req.params.id);
+export const pointHistory = async (req, res) => {
+    try {
+        const points = await Point.find().sort({ date: 1 });
+        res.render('pointHistory', {
+            points
+        });
 
-    if(!point) {
-      return res.status(404).send('Point not found');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error loading Point History');
     }
-
-    res.render('edit', {
-        title: "edit",
-        point
-    });
-
-  } catch (err) {
-    next(err)
-  }
-};
-
-export const pointPage = async (req, res, next) => {
-  try {
-    const { message, team } = req.body;
-    const pointNum = parseInt(req.body.pointNum);
-    
-    await Point.findByIdAndUpdate(req.params.id, {
-      pointNum,
-      message,
-      team
-    });
-
-    res.redirect('/');
-  } catch (err) {
-    next(err);
-  }
-};
-
-export const del = async (req,res,next) => {
-  try {
-    await Point.findByIdAndDelete(req.params.id);
-
-    res.redirect('/');
-
-  } catch (err) {
-    next(err)
-  }
-
 };

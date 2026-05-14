@@ -1,29 +1,29 @@
 import express from 'express';
 
-import { loadPage, addPoint, edit, pointPage, del } from '../controllers/pointControllers.js';
+import { loadPage, addPoint, pointHistory} from '../controllers/pointControllers.js';
 import { loadEvents, adminEvents, addEvent, deleteEvent, studentEvents} from '../controllers/eventControllers.js';
-import { adminEnter, editEnter, login } from '../controllers/adminControllers.js';
+import { adminEnter, adminLoad, editEnter, login } from '../controllers/adminControllers.js';
 import { requireAuth } from '../middleware/auth.js';
 
 export const router = express.Router();
 
-//write a route
+//general studen page load
 router.get("/", loadPage);
 
-router.post("/addPoint", addPoint);
-router.get('/adminEnter', adminEnter);
-router.get('/editEnter', editEnter);
+//event pages
 router.get('/events', loadEvents);
 router.get('/adminEvents', adminEvents);
 router.get('/studentEvents', studentEvents);
 router.post('/addEvents', addEvent);
 router.post('/deleteEvent/:id', deleteEvent);
 
+//admin login pages
 router.get("/login", login);
 router.post('/adminEnter', adminEnter);
+router.get('/adminLoad', adminLoad);
 router.get('/editEnter', requireAuth, editEnter);
-//edit
-router.get('/:id/edit', edit);
-router.post('/:id', pointPage);
-//delete
-router.post('/:id/delete', del);
+
+
+//Point routes
+router.post("/addPoint", addPoint);
+router.get('/pointHistory', pointHistory);
